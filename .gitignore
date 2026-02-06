@@ -1,0 +1,19 @@
+# Node
+node_modules/
+
+# Vite/React
+saritam_fe/dist/
+
+# Env files
+.env
+saritam_be/.env
+saritam_fe/.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
