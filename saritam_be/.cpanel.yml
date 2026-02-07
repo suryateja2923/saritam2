@@ -1,0 +1,72 @@
+---
+spec: 1.0
+
+info:
+  name: "Saritam Backend API"
+  description: "Event Registration Backend Server"
+  version: "1.0.0"
+
+deployment:
+  product: "nodejs_app"
+  
+  nodejs:
+    version: 18
+    
+build:
+  realuser: nobody
+  commands:
+    - "npm install"
+
+post_deployment:
+  description: "Post-deployment setup"
+  commands:
+    - "npm install"
+
+startup:
+  description: "Start Node.js application"
+  command: "/usr/bin/node server.js"
+  
+environment:
+  - name: "DB_HOST"
+    description: "MySQL Database Host"
+    value: "localhost"
+    
+  - name: "DB_USER"
+    description: "MySQL Database User"
+    value: "root"
+    
+  - name: "DB_PASSWORD"
+    description: "MySQL Database Password"
+    value: "@narendra8106"
+    
+  - name: "DB_NAME"
+    description: "MySQL Database Name"
+    value: "fest_registration"
+    
+  - name: "PORT"
+    description: "Application Port"
+    value: "7777"
+    
+  - name: "RAZORPAY_KEY"
+    description: "Razorpay API Key"
+    value: "rzp_test_SAqXPUok12CsRJ"
+    
+  - name: "RAZORPAY_SECRET"
+    description: "Razorpay API Secret"
+    value: "y6qU5gWgoN1DBMF3bGPIZp57"
+    
+  - name: "EMAIL"
+    description: "Email Address for Notifications"
+    value: ""
+    
+  - name: "EMAIL_PASS"
+    description: "Email Password for Nodemailer"
+    value: ""
+    
+  - name: "NODE_ENV"
+    description: "Node Environment"
+    value: "production"
+
+document_root: ""
+
+requires_file_system_write: true

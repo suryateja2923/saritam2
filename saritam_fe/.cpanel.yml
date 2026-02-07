@@ -1,0 +1,36 @@
+---
+spec: 1.0
+
+info:
+  name: "Saritam Frontend Application"
+  description: "Event Registration React Application"
+  version: "1.0.0"
+
+deployment:
+  product: "static"
+
+build:
+  realuser: nobody
+  commands:
+    - "npm install"
+    - "npm run build"
+
+post_deployment:
+  description: "Post-deployment setup"
+  commands:
+    - "npm install"
+    - "npm run build"
+    - "rm -rf node_modules"
+
+document_root: "dist"
+
+requires_file_system_write: false
+
+environment:
+  - name: "VITE_API_URL"
+    description: "Backend API URL"
+    value: "http://localhost:7777/saritam"
+    
+  - name: "NODE_ENV"
+    description: "Node Environment"
+    value: "production"

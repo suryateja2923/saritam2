@@ -1,0 +1,49 @@
+---
+spec: 1.0
+
+info:
+  name: "Saritam Event Management Platform"
+  description: "Complete Event Registration System with Backend API and React Frontend"
+  version: "1.0.0"
+
+deployments:
+  backend:
+    path: "saritam_be"
+    product: "nodejs_app"
+    
+  frontend:
+    path: "saritam_fe"
+    product: "static"
+
+deployment_order:
+  - backend
+  - frontend
+
+description: |
+  This is a complete event registration platform consisting of:
+  
+  1. BACKEND (saritam_be):
+     - Express.js REST API server
+     - MySQL database integration
+     - Razorpay payment processing
+     - Email notifications with Nodemailer
+     - Port: 7777
+     - Startup: npm start
+  
+  2. FRONTEND (saritam_fe):
+     - React application with Vite
+     - Builds to 'dist' directory
+     - API Integration with backend
+     - Responsive UI with event registration
+
+required_services:
+  - nodejs
+  - mysql
+  - nodejs-npm
+
+notes:
+  - Ensure MySQL database 'fest_registration' is created before deployment
+  - Update environment variables in cPanel settings post-deployment
+  - Frontend API URL should point to backend server after deployment
+  - Razorpay keys should be updated with production keys before going live
+  - Email configuration is required for notification features
